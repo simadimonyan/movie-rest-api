@@ -1,0 +1,11 @@
+fastapi[standard]
+sqlalchemy
+psycopg
+psycopg-binary
+python-dotenv
+httpx
+asyncio
+pydantic
+pyjwt
+passlib[bcrypt]
+

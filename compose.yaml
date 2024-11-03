@@ -1,0 +1,54 @@
+services:
+  server:
+    container_name: api
+    build:
+      context: .
+    ports:
+      - 8000:81
+    networks:
+      - postgres
+    develop:
+      depends_on:
+        - db
+      watch:
+        - action: sync
+          path: ./src
+          target: /app/src
+          ignore:
+            - node_modules/
+        - action: rebuild 
+          path: requirements.txt
+
+  db:
+    container_name: postgres
+    image: postgres:latest 
+    restart: always
+    env_file:
+      - ".env"
+    environment: 
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+        - ./db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - postgres
+    
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin
+    restart: always
+    env_file:
+      - ".env"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD}
+    ports:
+      - 8080:80
+    networks:
+     - postgres
+
+networks:
+  postgres:
+    driver: bridge

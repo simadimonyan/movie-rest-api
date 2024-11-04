@@ -8,4 +8,5 @@ asyncio
 pydantic
 pyjwt
 passlib[bcrypt]
+locust
 

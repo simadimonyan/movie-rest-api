@@ -61,6 +61,12 @@ class Database:
             session.merge(favorite)
             session.commit()
             return favorite
+        
+    async def get_favorite(self, user_id, id):
+        Session = sessionmaker(bind=self.engine)
+        with Session() as session:
+            favorite = session.query(FavoriteMovie).filter_by(user_id=user_id, id=id).first()
+            return favorite
 
     async def get_favorites(self, user_id):
         Session = sessionmaker(bind=self.engine)
@@ -72,7 +78,6 @@ class Database:
         Session = sessionmaker(bind=self.engine)
         with Session() as session:
             favorite = session.query(FavoriteMovie).filter_by(user_id=user_id, id=id).first()
-            print(favorite)
             if favorite:
                 session.delete(favorite)
                 session.commit()

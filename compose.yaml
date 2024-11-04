@@ -49,6 +49,26 @@ services:
     networks:
      - postgres
 
+  master:
+    image: locustio/locust
+    container_name: locust-ui
+    ports:
+      - "8089:8089"
+    volumes:
+      - ./src/tests:/mnt/locust
+    command: -f /mnt/locust/load_test.py --master -H http://api:81
+    networks:
+      - postgres
+
+  worker:
+    container_name: locust-work
+    image: locustio/locust
+    volumes:
+      - ./src/tests:/mnt/locust
+    command: -f /mnt/locust/load_test.py --worker --master-host master
+    networks:
+      - postgres
+
 networks:
   postgres:
     driver: bridge

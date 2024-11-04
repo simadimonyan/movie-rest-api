@@ -98,6 +98,9 @@ async def add_favorites(movie_id: int = Path(ge=300, le=7000000), key = Depends(
     profile = await db.get_user_by_email(email=email)
     payload = await kinopoisk.get_movie(movie_id)
 
+    if (await db.get_favorite(profile.id, movie_id) is not None):
+        raise HTTPException(status_code=400, detail="You already saved the favorite movie!")
+    
     await db.add_favorite(profile.id, movie_id, payload)
 
     return JSONResponse({ "message": "Movie added to favorites!", "payload": payload })

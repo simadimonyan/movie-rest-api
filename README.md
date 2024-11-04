@@ -17,17 +17,15 @@ Movie REST API is a development test assignment for an interview.
 
 1. Clone the repository.
 ```bash
-sudo git clone https://github.com/simadimonyan/movie-rest-api-python.git
+sudo git clone https://github.com/simadimonyan/movie-rest-api.git
 ```
 
 2. Uncomment and configure the example.env file.
 ```
 Open the example.env file.
-Uncomment the necessary environment variables.
 Replace the placeholder values with your own data.
 Save the file as .env.
 ```
-
 
 3. Compose the project.
 ```bash

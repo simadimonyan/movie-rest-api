@@ -4,14 +4,18 @@
 
 Movie REST API is a development test assignment for an interview.
 
+Asynchronous RESTful API service that allows users to register, authenticate, and manage a list of their favorite movies. Integrated with Kinopoisk Unofficial API to get information about movies: https://kinopoiskapiunofficial.tech
+
 - Python
 - FastAPI
 - SQLAlchemy
+- Kinopoisk Unofficial API
 - AsyncIO
 - Locust
 - Httpx
 - Docker
 - Git
+
 
 ## Installation
 
@@ -87,6 +91,8 @@ curl -X 'POST' \
 }
 ```
 
+---
+
 ### User Login
 
 **URL:** `POST /login`
@@ -124,6 +130,8 @@ curl -X 'POST' \
 }
 ```
 
+---
+
 ### Get User Profile
 
 **URL:** `GET /profile`
@@ -155,6 +163,8 @@ curl -X 'GET' \
   }
 }
 ```
+
+---
 
 ### Search Movies
 
@@ -242,6 +252,8 @@ curl -X 'GET' \
 }
 ```
 
+---
+
 ### Get Movie Details
 
 **URL:** `GET /movies/{movie_id}`
@@ -325,6 +337,8 @@ curl -X 'GET' \
   "lastSync": "2024-10-13T11:39:49.633167"
 }
 ```
+
+---
 
 ### Add Favorite Movie
 
@@ -413,6 +427,8 @@ curl -X 'POST' \
 }
 ```
 
+---
+
 ### Delete Favorite Movie
 
 **URL:** `DELETE /movies/favorites/{movie_id}`
@@ -430,7 +446,7 @@ curl -X 'POST' \
 **Request:**
 ```bash
 curl -X 'DELETE' \
-  'http://localhost:8000/movies/favorites/12345' \
+  'http://localhost:8000/movies/favorites/1' \
   -H 'accept: application/json' \
   -H 'X-API-KEY: your_access_token'
 ```
@@ -500,6 +516,8 @@ curl -X 'DELETE' \
 }
 ```
 
+---
+
 ### Get Favorite Movies
 
 **URL:** `GET /movies/favorites/`
@@ -528,6 +546,8 @@ curl -X 'GET' \
   }
 }
 ```
+
+---
 
 ## Contact
 

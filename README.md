@@ -20,7 +20,14 @@ Movie REST API is a development test assignment for an interview.
 sudo git clone https://github.com/simadimonyan/movie-rest-api-python.git
 ```
 
-2. 
+2. Uncomment and configure the example.env file.
+```
+Open the example.env file.
+Uncomment the necessary environment variables.
+Replace the placeholder values with your own data.
+Save the file as .env.
+```
+
 
 3. Compose the project.
 ```bash
@@ -29,7 +36,11 @@ sudo docker compose up
 
 ## Swagger Docs
 
-![alt text](/docs/image.png)
+![alt text](/docs/image.jpg)
+
+## Load Test on 100 users by Locust
+
+![alt text](/docs/test.jpg)
 
 ## Development Test Assignment
 

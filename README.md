@@ -44,7 +44,7 @@ sudo docker compose up
 
 ## Development Test Assignment
 
-- [Task](/docs/Тестовое здание.pdf)
+- [Task](/docs/"Тестовое здание.pdf")
 
 ## API
 
